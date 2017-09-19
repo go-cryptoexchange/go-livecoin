@@ -51,7 +51,7 @@ func (l *Livecoin) GetOrderBook(currencyPair string, groupByPrice bool, depth in
 	var orderBook OrderBook
 	r, err := l.client.do(
 		"GET",
-		fmt.Sprintf("/exchange/order_book?currencyPair=%s&groupByPrice=%s&depth=%s", currencyPair, groupByPrice, depth),
+		fmt.Sprintf("/exchange/order_book?currencyPair=%s&groupByPrice=%v&depth=%d", currencyPair, groupByPrice, depth),
 		"",
 	)
 	if err != nil {
