@@ -21,5 +21,10 @@ func TestGetOrderBook(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	t.Log(book)
+	if len(book.Asks) < 1 {
+		t.Fail()
+	}
+	if len(book.Bids) < 1 {
+		t.Fail()
+	}
 }
